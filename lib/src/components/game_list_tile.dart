@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mockapi_2024/src/models/game.dart';
-import 'package:mockapi_2024/src/screens/game_detail_screen.dart';
+import 'package:mockapi_2024/core/models/game.dart';
+import 'package:mockapi_2024/src/screens/game_list/game_list_view_model.dart';
+import 'package:stacked/stacked.dart';
 
-class GameListTile extends StatelessWidget {
+class GameListTile extends ViewModelWidget<GameListViewModel> {
   final GameModel game;
 
   const GameListTile({
@@ -11,7 +12,7 @@ class GameListTile extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, GameListViewModel viewModel) {
     return Card(
       margin: const EdgeInsets.symmetric(
         horizontal: 30,
@@ -28,11 +29,7 @@ class GameListTile extends StatelessWidget {
         ),
         trailing: const Icon(Icons.chevron_right),
         onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (_) => GameDetailScreen(gameId: game.id ?? ''),
-            ),
-          );
+          viewModel.navigateToDetailScreen(game.id ?? '');
         },
       ),
     );

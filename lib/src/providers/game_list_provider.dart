@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:mockapi_2024/src/models/game.dart';
-import 'package:mockapi_2024/src/services/game_service.dart';
+import 'package:mockapi_2024/core/models/game.dart';
+import 'package:mockapi_2024/core/services/game_service.dart';
 
 class GameListProvider extends StateNotifier<List<GameModel>> {
   final Ref ref;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mockapi_2024/src/models/game.dart';
+import 'package:mockapi_2024/core/models/game.dart';
 
 class GameDetail extends StatelessWidget {
   final GameModel game;

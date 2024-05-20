@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mockapi_2024/src/screens/game_list_screen.dart';
+import 'package:mockapi_2024/app/app.router.dart';
+import 'package:mockapi_2024/app/application.dart';
+import 'package:mockapi_2024/src/screens/game_list/game_list_screen.dart';
+import 'package:stacked_services/stacked_services.dart';
 
-void main() {
-  runApp(const ProviderScope(
-    child: MyApp(),
-  ));
+Future<void> main() async {
+  await Application.initialize();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,6 +22,11 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
+      onGenerateRoute: StackedRouter().onGenerateRoute,
+      navigatorKey: StackedService.navigatorKey,
+      navigatorObservers: [
+        StackedService.routeObserver,
+      ],
       home: const GameListScreen(),
     );
   }

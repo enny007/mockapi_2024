@@ -1,6 +1,6 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:mockapi_2024/src/models/game.dart';
-import 'package:mockapi_2024/src/services/base_service.dart';
+import 'package:mockapi_2024/core/models/game.dart';
+import 'package:mockapi_2024/core/base/base_service.dart';
 
 class GameService extends BaseService {
   static const basePath = '/game';
